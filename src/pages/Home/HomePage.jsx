@@ -8,9 +8,14 @@ const HomePage = () => {
   return (
     <div className={styles.hero}>
       <div className={styles.heroContent}>
+      <div className={styles.heroTitles}>
         <h1 className={styles.heroTitle}>
-          Find Your Perfect Nomad Nest With Properties Ranked To Your Every Preference
+          Find Your Perfect Nomad Nest
         </h1>
+        <h2 className={styles.heroSubtitle}>
+          Properties Ranked To Your Every Preference
+        </h2>
+      </div>
         
         {/* Search Box */}
         <div className={styles.searchBox}>
