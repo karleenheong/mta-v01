@@ -2,7 +2,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  font-family: 'Inter', -apple-system, system-ui, sans-serif;
 }
 
 .header {
@@ -11,174 +10,120 @@
 }
 
 .header h1 {
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: var(--primary);
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
 }
 
 .subtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  max-width: 650px;
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 600px;
   margin: 0 auto;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
 }
 
-/* Quick Quiz Styles */
+/* Quiz Wrapper */
+.quizWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f9fafb;
+  z-index: 100;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+/* Quick Quiz Card */
 .quickQuiz {
-  background: linear-gradient(145deg, var(--background-light) 0%, #FFFFFF 100%);
-  border-radius: 1rem;
-  padding: 1.75rem;
-  box-shadow: 0 8px 24px rgba(21, 67, 95, 0.12);
-  border: 1px solid var(--border-light);
-  margin-bottom: 2.5rem;
-  transition: transform 0.2s ease;
-}
-
-.quickQuiz:hover {
-  transform: translateY(-2px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 3rem;
 }
 
 .quickQuizContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .quickQuizInfo {
-  flex-grow: 1;
+  flex: 1;
 }
 
 .quickQuizHeader {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .quickQuizHeader h2 {
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: -0.02em;
-}
-
-.sparkleIcon {
-  color: var(--accent);
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.successIcon {
-  color: #41affd;
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.quickQuizInfo p {
-  color: var(--text-secondary);
-  font-size: 1.0625rem;
-  line-height: 1.5;
-}
-
-.primaryButton {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.875rem 1.5rem;
-  background-color: #0496ff;
-  color: white;
+  font-size: 1.5rem;
   font-weight: 600;
-  font-size: 1rem;
-  border-radius: 0.75rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(4, 150, 255, 0.25);
+  color: #111827;
 }
 
-.primaryButton:hover {
-  background-color: #41affd;
-  transform: translateY(-1px);
+.sparkleIcon, .successIcon {
+  width: 24px;
+  height: 24px;
+  color: #3b82f6;
 }
 
-.primaryButton:active {
-  transform: translateY(0);
-}
-
-.secondaryButton {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.875rem 1.5rem;
-  background-color: white;
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 0.75rem;
-  border: 2px solid var(--border-light);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.secondaryButton:hover {
-  border-color: var(--primary);
-  transform: translateY(-1px);
-}
-
-.secondaryButton:active {
-  transform: translateY(0);
-}
-
-/* Sections */
+/* Sections Grid */
 .sections {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 3rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .sectionTitle {
-  font-size: 1.625rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 1.75rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border-light);
-  letter-spacing: -0.02em;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
 }
 
 .subsectionGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
+/* Subsection Cards */
 .subsectionCard {
   display: flex;
   flex-direction: column;
-  padding: 1.75rem;
+  padding: 1.5rem;
   background: white;
-  border: 1px solid var(--border-light);
-  border-radius: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
   text-align: left;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .subsectionCard:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(21, 67, 95, 0.12);
 }
 
 .subsectionHeader {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .icon {
@@ -186,84 +131,115 @@
 }
 
 .subsectionTitle {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
-  color: var(--primary);
+  color: #111827;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  letter-spacing: -0.01em;
 }
 
 .completedBadge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #41affd;
+  background: #34d399;
   color: white;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   font-size: 0.75rem;
 }
 
 .description {
-  color: var(--text-secondary);
-  font-size: 1rem;
-  margin-bottom: 1.25rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
   flex-grow: 1;
-  line-height: 1.5;
 }
 
 .actionText {
-  color: #0496ff;
+  color: #3b82f6;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Buttons */
+.primaryButton {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
   font-size: 1rem;
-  font-weight: 600;
-  transition: color 0.2s ease;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.subsectionCard:hover .actionText {
-  color: #41affd;
+.primaryButton:hover {
+  background: #2563eb;
 }
 
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #f3f4f6;
+  color: #4b5563;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.secondaryButton:hover {
+  background: #e5e7eb;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .container {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .header h1 {
-    font-size: 1.875rem;
-  }
-  
-  .subtitle {
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
 
   .quickQuizContent {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem;
   }
 
-  .quickQuiz {
-    padding: 1.5rem;
+  .quickQuizHeader {
+    justify-content: center;
+  }
+
+  .primaryButton, .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .quizWrapper {
+    padding: 0;
   }
 
   .subsectionGrid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 480px) {
   .header h1 {
-    font-size: 1.625rem;
+    font-size: 1.75rem;
   }
 
   .subtitle {
-    font-size: 1.125rem;
-  }
-
-  .container {
-    padding: 1rem;
+    font-size: 1rem;
   }
 }

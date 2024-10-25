@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react';
+import QuizContainer from '../quiz/QuizContainer/QuizContainer';
 import styles from './PreferenceCenter.module.css';
 
 const PreferenceCenter = () => {
   const navigate = useNavigate();
+  const [showQuiz, setShowQuiz] = useState(false);
   const [hasCompletedQuickQuiz, setHasCompletedQuickQuiz] = useState(false);
   const [preferences, setPreferences] = useState({
     workspace: {},
@@ -148,9 +150,55 @@ const PreferenceCenter = () => {
     }
   ];
 
+  const handleStartQuickQuiz = () => {
+    navigate('/preference-center/quick-quiz');
+  };
+
   const handleSectionClick = (sectionId) => {
     navigate(sectionId);
   };
+
+  const handleQuizComplete = (quizAnswers) => {
+    // Map quiz answers to preference categories
+    const updatedPreferences = {
+      ...preferences,
+      workspace: {
+        ...preferences.workspace,
+        primary_location: quizAnswers.workspace,
+        internet_speed: quizAnswers.internet,
+        ergonomic_importance: quizAnswers.ergonomics
+      },
+      property: {
+        ...preferences.property,
+        stay_duration: quizAnswers.duration,
+        budget: quizAnswers.budget,
+        schedule: quizAnswers.schedule,
+        property_type: quizAnswers.property_type
+      },
+      neighborhood: {
+        ...preferences.neighborhood,
+        area_type: quizAnswers.area_type,
+        walking_distances: quizAnswers.walking_times,
+        important_features: quizAnswers.neighborhood
+      },
+      // ... map other answers to appropriate categories
+    };
+
+    setPreferences(updatedPreferences);
+    setHasCompletedQuickQuiz(true);
+    setShowQuiz(false);
+  };
+
+  if (showQuiz) {
+    return (
+      <div className={styles.quizWrapper}>
+        <QuizContainer 
+          onComplete={handleQuizComplete}
+          onCancel={() => setShowQuiz(false)}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>
@@ -175,7 +223,7 @@ const PreferenceCenter = () => {
               </p>
             </div>
             <button 
-              onClick={() => navigate('/quiz')}
+              onClick={() => setShowQuiz(true)}
               className={styles.secondaryButton}
             >
               Update Preferences
@@ -193,7 +241,7 @@ const PreferenceCenter = () => {
               </p>
             </div>
             <button 
-              onClick={() => navigate('/quiz')}
+              onClick={() => setShowQuiz(true)}
               className={styles.primaryButton}
             >
               Start Quiz
@@ -203,7 +251,7 @@ const PreferenceCenter = () => {
         )}
       </div>
 
-      {/* Existing Sections with Updated Copy */}
+      {/* Existing Sections */}
       <div className={styles.sections}>
         {sections.map(section => (
           <div key={section.id} className={styles.section}>
@@ -219,14 +267,16 @@ const PreferenceCenter = () => {
                     <span className={styles.icon}>{subsection.icon}</span>
                     <h3 className={styles.subsectionTitle}>
                       {subsection.title}
-                      {subsection.completed && (
+                      {Object.keys(preferences[subsection.id]).length > 0 && (
                         <span className={styles.completedBadge}>✓</span>
                       )}
                     </h3>
                   </div>
                   <p className={styles.description}>{subsection.description}</p>
                   <span className={styles.actionText}>
-                    {subsection.completed ? 'Adjust preferences' : 'Set your preferences'}
+                    {Object.keys(preferences[subsection.id]).length > 0 
+                      ? 'Adjust preferences' 
+                      : 'Set your preferences'}
                   </span>
                 </button>
               ))}

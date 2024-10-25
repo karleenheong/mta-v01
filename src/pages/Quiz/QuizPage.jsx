@@ -1,24 +1,58 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import QuizSystem from '../../components/quiz/QuizSystem';
 import { quizSections } from '../../data/quiz/sections/quizSections';
+import { quickQuizSection } from '../../data/quiz/sections/quickQuizSection';
 import styles from './QuizPage.module.css';
 
-const QuizPage = () => {
+const QuizPage = ({ quizType }) => {
   const { sectionId } = useParams();
   const navigate = useNavigate();
   
-  // Find the appropriate section data based on the sectionId
-  const section = quizSections.find(section => section.id === sectionId);
+  // Determine which section to use based on quizType or sectionId
+  const section = quizType === 'quick' 
+    ? quickQuizSection 
+    : quizSections.find(section => section.id === sectionId);
 
   const handleComplete = (answers) => {
-    console.log('Quiz completed:', answers);
-    // Save answers here
-    // Then navigate back to preference center - updated path
+    if (quizType === 'quick') {
+      // Handle quick quiz completion
+      const existingPreferences = JSON.parse(localStorage.getItem('preferences') || '{}');
+      const mappedAnswers = {
+        workspace: {
+          primary_location: answers.work_location,
+          internet_speed: answers.internet_speed,
+          schedule: answers.work_schedule
+        },
+        property: {
+          stay_duration: answers.stay_duration,
+          budget: answers.monthly_budget,
+          must_have_amenities: answers.must_have_amenities
+        },
+        neighborhood: {
+          area_type: answers.area_type,
+          important_features: answers.neighborhood_features
+        }
+      };
+
+      const updatedPreferences = {
+        ...existingPreferences,
+        quickQuiz: mappedAnswers
+      };
+      localStorage.setItem('preferences', JSON.stringify(updatedPreferences));
+    } else {
+      // Handle section quiz completion
+      const existingPreferences = JSON.parse(localStorage.getItem('preferences') || '{}');
+      const updatedPreferences = {
+        ...existingPreferences,
+        [sectionId]: answers
+      };
+      localStorage.setItem('preferences', JSON.stringify(updatedPreferences));
+    }
+    
     navigate('/preference-center');
   };
 
   const handleBack = () => {
-    // Updated path to match new routing structure
     navigate('/preference-center');
   };
 
@@ -29,19 +63,6 @@ const QuizPage = () => {
         <button onClick={handleBack} className={styles.backButton}>
           Return to Preference Center
         </button>
-      </div>
-    );
-  }
-
-  // Add some basic error handling for missing section data
-  if (!section.title || !section.questions) {
-    return (
-      <div className={styles.container}>
-        <button onClick={handleBack} className={styles.backButton}>
-          ← Back to Preference Center
-        </button>
-        <h1>Error loading quiz</h1>
-        <p>There was a problem loading this quiz section. Please try again.</p>
       </div>
     );
   }
