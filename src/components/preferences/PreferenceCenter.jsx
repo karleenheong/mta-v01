@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react';
-import QuizContainer from '../quiz/QuizContainer/QuizContainer';
 import styles from './PreferenceCenter.module.css';
 
 const PreferenceCenter = () => {
