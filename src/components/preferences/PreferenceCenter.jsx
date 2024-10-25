@@ -21,7 +21,9 @@ const PreferenceCenter = () => {
     professional: {},
     essential: {},
     transportation: {},
-    entertainment: {}
+    entertainment: {},
+    localCommunity: {},
+    nomadCommunity: {},
   });
 
   const sections = [
@@ -30,6 +32,13 @@ const PreferenceCenter = () => {
       title: 'Lifestyle Preferences',
       subsections: [
         {
+          id: 'digitalNomad',
+          title: 'Digital Nomad Travel Style',
+          icon: '🌐',
+          description: 'This is all about how you like to work and travel',
+          completed: Object.keys(preferences.digitalNomad).length > 0
+        },
+        {
           id: 'workspace',
           title: 'Workspace',
           icon: '💻',
@@ -37,11 +46,18 @@ const PreferenceCenter = () => {
           completed: Object.keys(preferences.workspace).length > 0
         },
         {
-          id: 'digitalNomad',
-          title: 'Digital Nomad Infrastructure',
-          icon: '🌐',
-          description: 'Set your digital nomad and connectivity requirements',
-          completed: Object.keys(preferences.digitalNomad).length > 0
+          id: 'nomadCommunity',
+          title: 'Nomad Community',
+          icon: '👥',
+          description: 'Your nomad community preferences',
+          completed: Object.keys(preferences.nomadCommunity).length > 0
+        },
+        {
+          id: 'localCommunity',
+          title: 'Local Community',
+          icon: '🏠',
+          description: 'Your local normie community preferences',
+          completed: Object.keys(preferences.localCommunity).length > 0
         }
       ]
     },
@@ -240,7 +256,8 @@ const PreferenceCenter = () => {
               </p>
             </div>
             <button 
-              onClick={() => setShowQuiz(true)}
+              // onClick={() => setShowQuiz(true)}
+              onClick={() => navigate('/quiz')}
               className={styles.primaryButton}
             >
               Start Quiz
