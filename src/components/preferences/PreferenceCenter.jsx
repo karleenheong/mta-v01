@@ -35,7 +35,7 @@ const PreferenceCenter = () => {
           id: 'digitalNomad',
           title: 'Digital Nomad Travel Style',
           icon: '🌐',
-          description: 'This is all about how you like to work and travel',
+          description: 'Set your travel style and duration preferences',
           completed: Object.keys(preferences.digitalNomad).length > 0
         },
         {
@@ -49,14 +49,14 @@ const PreferenceCenter = () => {
           id: 'nomadCommunity',
           title: 'Nomad Community',
           icon: '👥',
-          description: 'Your nomad community preferences',
+          description: 'Define your community and networking preferences',
           completed: Object.keys(preferences.nomadCommunity).length > 0
         },
         {
           id: 'localCommunity',
           title: 'Local Community',
           icon: '🏠',
-          description: 'Your local normie community preferences',
+          description: 'Set preferences for local interaction and culture',
           completed: Object.keys(preferences.localCommunity).length > 0
         }
       ]
@@ -76,21 +76,21 @@ const PreferenceCenter = () => {
           id: 'bathroom',
           title: 'Bathroom',
           icon: '🚿',
-          description: 'Set your bathroom preferences',
+          description: 'Set your bathroom and amenity preferences',
           completed: Object.keys(preferences.bathroom).length > 0
         },
         {
           id: 'bedroom',
           title: 'Bedroom',
           icon: '🛏️',
-          description: 'Configure bedroom preferences',
+          description: 'Configure bedroom comfort and setup preferences',
           completed: Object.keys(preferences.bedroom).length > 0
         },
         {
           id: 'livingArea',
           title: 'Living Area',
           icon: '🛋️',
-          description: 'Set living space preferences',
+          description: 'Set living space and relaxation preferences',
           completed: Object.keys(preferences.livingArea).length > 0
         }
       ]
@@ -103,14 +103,14 @@ const PreferenceCenter = () => {
           id: 'property',
           title: 'Property Features',
           icon: '🏠',
-          description: 'Set general property preferences',
+          description: 'Set preferences for property type and features',
           completed: Object.keys(preferences.property).length > 0
         },
         {
           id: 'buildingAmenities',
           title: 'Building Amenities',
           icon: '🏢',
-          description: 'Choose important building features',
+          description: 'Choose important building features and services',
           completed: Object.keys(preferences.buildingAmenities).length > 0
         },
         {
@@ -130,52 +130,52 @@ const PreferenceCenter = () => {
           id: 'neighborhood',
           title: 'Neighborhood',
           icon: '🏘️',
-          description: 'Set neighborhood preferences',
+          description: 'Set preferences for your ideal neighborhood',
           completed: Object.keys(preferences.neighborhood).length > 0
         },
         {
           id: 'professional',
           title: 'Professional Services',
           icon: '💼',
-          description: 'Configure nearby service requirements',
+          description: 'Configure nearby professional service requirements',
           completed: Object.keys(preferences.professional).length > 0
         },
         {
           id: 'essential',
           title: 'Essential Services',
           icon: '🏪',
-          description: 'Set essential service preferences',
+          description: 'Set preferences for essential nearby services',
           completed: Object.keys(preferences.essential).length > 0
         },
         {
           id: 'transportation',
           title: 'Transportation',
           icon: '🚇',
-          description: 'Configure transport preferences',
+          description: 'Configure transport and accessibility preferences',
           completed: Object.keys(preferences.transportation).length > 0
         },
         {
           id: 'entertainment',
           title: 'Entertainment & Culture',
           icon: '🎭',
-          description: 'Set entertainment preferences',
+          description: 'Set preferences for leisure and cultural activities',
           completed: Object.keys(preferences.entertainment).length > 0
         }
       ]
     }
   ];
 
-  const handleStartQuickQuiz = () => {
-    navigate('/preference-center/quick-quiz');
-  };
-
   const handleSectionClick = (sectionId) => {
-    // navigate(sectionId);
-    navigate(`/section-quiz/${sectionId}`);
+    // Change this line to navigate to the correct route
+    navigate(`/section-quiz/${sectionId}`, {
+      // Optionally pass any initial state data
+      state: {
+        quizData: preferences[sectionId] || {}
+      }
+    });
   };
 
   const handleQuizComplete = (quizAnswers) => {
-    // Map quiz answers to preference categories
     const updatedPreferences = {
       ...preferences,
       workspace: {
@@ -196,8 +196,7 @@ const PreferenceCenter = () => {
         area_type: quizAnswers.area_type,
         walking_distances: quizAnswers.walking_times,
         important_features: quizAnswers.neighborhood
-      },
-      // ... map other answers to appropriate categories
+      }
     };
 
     setPreferences(updatedPreferences);
@@ -205,28 +204,16 @@ const PreferenceCenter = () => {
     setShowQuiz(false);
   };
 
-  if (showQuiz) {
-    return (
-      <div className={styles.quizWrapper}>
-        <QuizContainer 
-          onComplete={handleQuizComplete}
-          onCancel={() => setShowQuiz(false)}
-        />
-      </div>
-    );
-  }
-
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Design Your Perfect Stay</h1>
+        <h1>Preference Center</h1>
         <p className={styles.subtitle}>
           Tell us how you like to live and work, and we'll find your ideal spaces
         </p>
       </header>
 
-      {/* Quick Quiz Card */}
-      <div className={`${styles.quickQuiz} mb-12`}>
+      <div className={styles.quickQuiz}>
         {hasCompletedQuickQuiz ? (
           <div className={styles.quickQuizContent}>
             <div className={styles.quickQuizInfo}>
@@ -257,7 +244,6 @@ const PreferenceCenter = () => {
               </p>
             </div>
             <button 
-              // onClick={() => setShowQuiz(true)}
               onClick={() => navigate('/quiz')}
               className={styles.primaryButton}
             >
@@ -268,7 +254,6 @@ const PreferenceCenter = () => {
         )}
       </div>
 
-      {/* Existing Sections */}
       <div className={styles.sections}>
         {sections.map(section => (
           <div key={section.id} className={styles.section}>
@@ -284,17 +269,21 @@ const PreferenceCenter = () => {
                     <span className={styles.icon}>{subsection.icon}</span>
                     <h3 className={styles.subsectionTitle}>
                       {subsection.title}
-                      {Object.keys(preferences[subsection.id]).length > 0 && (
+                      {subsection.completed && (
                         <span className={styles.completedBadge}>✓</span>
                       )}
                     </h3>
                   </div>
                   <p className={styles.description}>{subsection.description}</p>
-                  <span className={styles.actionText}>
-                    {Object.keys(preferences[subsection.id]).length > 0 
-                      ? 'Adjust preferences' 
-                      : 'Set your preferences'}
-                  </span>
+                  <button 
+                    className={`${styles.cardButton} ${
+                      subsection.completed ? styles.completed : ''
+                    }`}
+                  >
+                    {subsection.completed 
+                      ? `Adjust ${subsection.title.toLowerCase()} preferences` 
+                      : `Set ${subsection.title.toLowerCase()} preferences`}
+                  </button>
                 </button>
               ))}
             </div>
