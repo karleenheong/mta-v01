@@ -170,7 +170,8 @@ const PreferenceCenter = () => {
   };
 
   const handleSectionClick = (sectionId) => {
-    navigate(sectionId);
+    // navigate(sectionId);
+    navigate(`/section-quiz/${sectionId}`);
   };
 
   const handleQuizComplete = (quizAnswers) => {
