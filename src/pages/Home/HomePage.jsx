@@ -1,7 +1,10 @@
-import { Search, Calendar, Users } from 'lucide-react';
+import { Search, Calendar, Users, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.hero}>
       <div className={styles.heroContent}>
@@ -12,7 +15,6 @@ const HomePage = () => {
         {/* Search Box */}
         <div className={styles.searchBox}>
           <div className={styles.searchGrid}>
-            {/* Location Search */}
             <div className={styles.searchField}>
               <Search className={styles.searchIcon} />
               <input 
@@ -22,7 +24,6 @@ const HomePage = () => {
               />
             </div>
 
-            {/* Check-in/Check-out */}
             <div className={styles.searchField}>
               <Calendar className={styles.searchIcon} />
               <input 
@@ -32,7 +33,6 @@ const HomePage = () => {
               />
             </div>
 
-            {/* Guests */}
             <div className={styles.searchField}>
               <Users className={styles.searchIcon} />
               <input 
@@ -43,9 +43,25 @@ const HomePage = () => {
             </div>
           </div>
 
-          {/* Search Button */}
           <button className={styles.searchButton}>
             Search
+          </button>
+        </div>
+
+        {/* Quick Quiz Section */}
+        <div className={styles.quizSection}>
+          <h2 className={styles.quizTitle}>
+            Not sure where to start?
+          </h2>
+          <p className={styles.quizDescription}>
+            Take our 5-minute quiz to get personalized recommendations based on your digital nomad lifestyle
+          </p>
+          <button 
+            onClick={() => navigate('/quiz')}
+            className={styles.quizButton}
+          >
+            Start Quick Quiz
+            <ArrowRight />
           </button>
         </div>
       </div>

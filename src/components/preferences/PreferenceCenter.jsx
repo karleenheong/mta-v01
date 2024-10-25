@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react';
 import styles from './PreferenceCenter.module.css';
 
 const PreferenceCenter = () => {
   const navigate = useNavigate();
-  // This would normally come from your app's state/database
+  const [hasCompletedQuickQuiz, setHasCompletedQuickQuiz] = useState(false);
   const [preferences, setPreferences] = useState({
     workspace: {},
     kitchen: {},
@@ -154,12 +155,55 @@ const PreferenceCenter = () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Preference Center</h1>
+        <h1>Design Your Perfect Stay</h1>
         <p className={styles.subtitle}>
-          Customize your accommodation preferences to find your perfect NomadNest
+          Tell us how you like to live and work, and we'll find your ideal spaces
         </p>
       </header>
 
+      {/* Quick Quiz Card */}
+      <div className={`${styles.quickQuiz} mb-12`}>
+        {hasCompletedQuickQuiz ? (
+          <div className={styles.quickQuizContent}>
+            <div className={styles.quickQuizInfo}>
+              <div className={styles.quickQuizHeader}>
+                <CheckCircle className={styles.successIcon} />
+                <h2>Your preferences are dialed in!</h2>
+              </div>
+              <p>
+                Fine-tune any category below to get even more personalized matches
+              </p>
+            </div>
+            <button 
+              onClick={() => navigate('/quiz')}
+              className={styles.secondaryButton}
+            >
+              Update Preferences
+            </button>
+          </div>
+        ) : (
+          <div className={styles.quickQuizContent}>
+            <div className={styles.quickQuizInfo}>
+              <div className={styles.quickQuizHeader}>
+                <Sparkles className={styles.sparkleIcon} />
+                <h2>Let's Find Your Perfect Match</h2>
+              </div>
+              <p>
+                Take a quick 5-minute quiz to discover spaces that align perfectly with your remote work lifestyle
+              </p>
+            </div>
+            <button 
+              onClick={() => navigate('/quiz')}
+              className={styles.primaryButton}
+            >
+              Start Quiz
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Existing Sections with Updated Copy */}
       <div className={styles.sections}>
         {sections.map(section => (
           <div key={section.id} className={styles.section}>
@@ -182,7 +226,7 @@ const PreferenceCenter = () => {
                   </div>
                   <p className={styles.description}>{subsection.description}</p>
                   <span className={styles.actionText}>
-                    {subsection.completed ? 'Update preferences' : 'Set preferences'}
+                    {subsection.completed ? 'Adjust preferences' : 'Set your preferences'}
                   </span>
                 </button>
               ))}

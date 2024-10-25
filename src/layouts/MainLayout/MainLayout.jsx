@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Menu } from 'lucide-react'
 import styles from './MainLayout.module.css'
+import logoImage from '../../assets/images/logo.png';
 
 const MainLayout = () => {
   return (
@@ -11,7 +12,7 @@ const MainLayout = () => {
         <div className={styles.navContent}>
           {/* Logo */}
           <Link to="/" className={styles.logo}>
-            Cozyama
+            <img src={logoImage} alt="Cozyama" />
           </Link>
 
           {/* Navigation Links */}
@@ -77,6 +78,10 @@ const MainLayout = () => {
                 <li><a href="#" className={styles.footerLink}>Press</a></li>
               </ul>
             </div>
+          </div>
+          <div className={styles.footerBottom}>
+            <div>© 2024 Cozyama. All rights reserved.</div>
+            <div>Terms · Privacy · Cookie Settings</div>
           </div>
         </div>
       </footer>
