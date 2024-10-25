@@ -9,7 +9,7 @@ const HomePage = () => {
     <div className={styles.hero}>
       <div className={styles.heroContent}>
         <h1 className={styles.heroTitle}>
-          Find Your Perfect Digital Nomad Nest
+          Find Your Perfect Nomad Nest With Properties Ranked To Your Every Preference
         </h1>
         
         {/* Search Box */}
@@ -51,16 +51,16 @@ const HomePage = () => {
         {/* Quick Quiz Section */}
         <div className={styles.quizSection}>
           <h2 className={styles.quizTitle}>
-            Not sure where to start?
+            Start the Super-Personalization Quiz
           </h2>
           <p className={styles.quizDescription}>
-            Take our 5-minute quiz to get personalized recommendations based on your digital nomad lifestyle
+            Get started with 10 quick questions about your digital nomad travel style
           </p>
           <button 
             onClick={() => navigate('/quiz')}
             className={styles.quizButton}
           >
-            Start Quick Quiz
+            Find the Best Properties for Me
             <ArrowRight />
           </button>
         </div>
