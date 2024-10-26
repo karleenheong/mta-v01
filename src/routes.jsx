@@ -6,6 +6,7 @@ import QuizPage from './pages/Quiz/QuizPage';
 import SectionQuizPage from './pages/Quiz/SectionQuizPage';
 import SearchResultsContainer from './pages/SearchResults/SearchResultsContainer';
 import ProfilesPage from './pages/Profiles/ProfilesPage';
+import ProfileDetailPage from './pages/ProfileDetail/ProfileDetailPage';
 
 const AppRoutes = (
   <Route element={<MainLayout />}>
@@ -15,6 +16,7 @@ const AppRoutes = (
     <Route path="/section-quiz/:section" element={<SectionQuizPage />} />
     <Route path="/search" element={<SearchResultsContainer />} />
     <Route path="/profiles" element={<ProfilesPage />} />
+    <Route path="/profiles/:id" element={<ProfileDetailPage />} />
   </Route>
 );
 

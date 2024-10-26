@@ -1,0 +1,125 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  margin-bottom: 24px;
+  padding: 8px 0;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #e5e5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+}
+
+.profileName {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.profileType {
+  color: #666;
+  font-size: 1.125rem;
+}
+
+.section {
+  margin-bottom: 32px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 24px 0 12px;
+}
+
+.description {
+  color: #444;
+  line-height: 1.6;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+}
+
+.budgetDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.budgetItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background-color: #f8fafc;
+  border-radius: 4px;
+}
+
+.tagGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8fafc;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.weight {
+  background-color: #e5e5ff;
+  color: #2563eb;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}

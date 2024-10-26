@@ -120,6 +120,12 @@
   border-top: 1px solid #e5e5e5;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .budget {
   font-size: 0.875rem;
   color: #666;
@@ -134,14 +140,35 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
   font-weight: 500;
-  background: none;
+  background-color: #2563eb;
+  color: white;
   border: none;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .selectButton:hover {
-  color: #1d4ed8;
+  background-color: #1d4ed8;
+}
+
+.viewButton {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #e5e5e5;
+  background-color: white;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.viewButton:hover {
+  background-color: #f8fafc;
+  border-color: #d1d5db;
+  color: #4b5563;
 }

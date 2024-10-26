@@ -68,7 +68,8 @@
 │   │   │           └── KitchenQuiz.module.css
 │   ├── contexts
 │   │   ├── AuthContext.jsx
-│   │   └── PreferenceContext.jsx
+│   │   ├── PreferenceContext.jsx
+│   │   └── ProfileContext.jsx
 │   ├── data
 │   │   ├── mockData
 │   │   │   ├── listings.js
@@ -103,10 +104,17 @@
 │   │   ├── Profile
 │   │   │   ├── ProfilePage.jsx
 │   │   │   └── ProfilePage.module.css
+│   │   ├── Profiles
+│   │   │   ├── ProfilesPage.jsx
+│   │   │   └── ProfilesPage.module.css
 │   │   ├── Quiz
 │   │   │   ├── QuizPage.jsx
 │   │   │   ├── QuizPage.module.css
 │   │   │   └── SectionQuizPage.jsx
+│   │   ├── SearchResults
+│   │   │   ├── SearchResultsContainer.jsx
+│   │   │   ├── SearchResultsPage.jsx
+│   │   │   └── SearchResultsPage.module.css
 │   │   └── Signup
 │   │       ├── SignupPage.jsx
 │   │       └── SignupPage.module.css
@@ -129,5 +137,6 @@
 ├── index.html
 ├── package-lock.json
 ├── package.json
+├── project-structure.txt
 ├── README.md
 └── vite.config.js

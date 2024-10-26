@@ -60,9 +60,26 @@ const ProfilesPage = () => {
                   ¥{profile.budget.preferred.toLocaleString()}/mo
                 </span>
               </div>
-              <button className={styles.selectButton}>
-                Select <ArrowRight />
-              </button>
+              <div className={styles.buttons}>
+                <button 
+                  className={styles.viewButton}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/profiles/${id}`);
+                  }}
+                >
+                  View Details
+                </button>
+                <button 
+                  className={styles.selectButton}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleProfileSelect(id);
+                  }}
+                >
+                  Select <ArrowRight size={16} />
+                </button>
+              </div>
             </div>
           </div>
         ))}
