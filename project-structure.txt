@@ -1,0 +1,133 @@
+├── public
+│   └── vite.svg
+├── src
+│   ├── assets
+│   │   ├── images
+│   │   │   └── logo.png
+│   ├── components
+│   │   ├── auth
+│   │   │   ├── LoginForm
+│   │   │   │   ├── LoginForm.jsx
+│   │   │   │   └── LoginForm.module.css
+│   │   │   └── SignupForm
+│   │   │       ├── SignupForm.jsx
+│   │   │       └── SignupForm.module.css
+│   │   ├── common
+│   │   │   ├── Button
+│   │   │   │   ├── Button.jsx
+│   │   │   │   └── Button.module.css
+│   │   │   ├── Input
+│   │   │   │   ├── Input.jsx
+│   │   │   │   └── Input.module.css
+│   │   │   ├── Navigation
+│   │   │   │   ├── Navigation.jsx
+│   │   │   │   └── Navigation.module.css
+│   │   │   ├── Select
+│   │   │   │   ├── Select.jsx
+│   │   │   │   └── Select.module.css
+│   │   ├── home
+│   │   │   ├── FeaturedListings
+│   │   │   │   ├── FeaturedListings.jsx
+│   │   │   │   └── FeaturedListings.module.css
+│   │   │   ├── Hero
+│   │   │   │   ├── Hero.jsx
+│   │   │   │   └── Hero.module.css
+│   │   │   └── SearchBox
+│   │   │       ├── SearchBox.jsx
+│   │   │       └── SearchBox.module.css
+│   │   ├── listings
+│   │   │   ├── ListingCard
+│   │   │   │   ├── ListingCard.jsx
+│   │   │   │   └── ListingCard.module.css
+│   │   │   ├── ListingDetail
+│   │   │   │   ├── ListingDetail.jsx
+│   │   │   │   └── ListingDetail.module.css
+│   │   │   └── ListingGrid
+│   │   │       ├── ListingGrid.jsx
+│   │   │       └── ListingGrid.module.css
+│   │   ├── preferences
+│   │   │   ├── PreferenceCenter.jsx
+│   │   │   └── PreferenceCenter.module.css
+│   │   ├── profile
+│   │   │   ├── ProfileSelector
+│   │   │   │   ├── ProfileSelector.jsx
+│   │   │   │   └── ProfileSelector.module.css
+│   │   │   └── ProfileSettings
+│   │   │       ├── ProfileSettings.jsx
+│   │   │       └── ProfileSettings.module.css
+│   │   ├── quiz
+│   │   │   ├── InitialQuiz
+│   │   │   │   ├── InitialQuiz.jsx
+│   │   │   │   └── InitialQuiz.module.css
+│   │   │   ├── QuizLayout
+│   │   │   │   ├── QuizLayout.jsx
+│   │   │   │   └── QuizLayout.module.css
+│   │   │   └── SectionQuizzes
+│   │   │       └── KitchenQuiz
+│   │   │           ├── KitchenQuiz.jsx
+│   │   │           └── KitchenQuiz.module.css
+│   ├── contexts
+│   │   ├── AuthContext.jsx
+│   │   └── PreferenceContext.jsx
+│   ├── data
+│   │   ├── mockData
+│   │   │   ├── listings.js
+│   │   │   └── profiles.js
+│   │   ├── quiz
+│   ├── hooks
+│   │   ├── useAuth.js
+│   │   └── usePreferences.js
+│   ├── layouts
+│   │   ├── AuthLayout
+│   │   │   ├── AuthLayout.jsx
+│   │   │   └── AuthLayout.module.css
+│   │   └── MainLayout
+│   │       ├── MainLayout.jsx
+│   │       └── MainLayout.module.css
+│   ├── pages
+│   │   ├── Home
+│   │   │   ├── HomePage.jsx
+│   │   │   └── HomePage.module.css
+│   │   ├── ListingDetail
+│   │   │   ├── ListingDetailPage.jsx
+│   │   │   └── ListingDetailPage.module.css
+│   │   ├── Listings
+│   │   │   ├── ListingsPage.jsx
+│   │   │   └── ListingsPage.module.css
+│   │   ├── Login
+│   │   │   ├── LoginPage.jsx
+│   │   │   └── LoginPage.module.css
+│   │   ├── PreferenceCenter
+│   │   │   ├── PreferenceCenterPage.jsx
+│   │   │   └── PreferenceCenterPage.module.css
+│   │   ├── Profile
+│   │   │   ├── ProfilePage.jsx
+│   │   │   └── ProfilePage.module.css
+│   │   ├── Quiz
+│   │   │   ├── QuizPage.jsx
+│   │   │   ├── QuizPage.module.css
+│   │   │   └── SectionQuizPage.jsx
+│   │   └── Signup
+│   │       ├── SignupPage.jsx
+│   │       └── SignupPage.module.css
+│   ├── services
+│   │   ├── api.js
+│   │   └── auth.js
+│   ├── styles
+│   │   └── global.css
+│   ├── utils
+│   │   ├── constants.js
+│   │   └── helpers.js
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   └── routes.jsx
+├── .gitignore
+├── eslint.config.js
+├── generate-structure.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
