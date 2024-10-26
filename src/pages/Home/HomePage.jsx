@@ -5,6 +5,10 @@ import styles from './HomePage.module.css';
 const HomePage = () => {
   const navigate = useNavigate();
 
+  const handleSearch = () => {
+    navigate('/search');
+  };
+
   return (
     <div className={styles.hero}>
       <div className={styles.heroContent}>
@@ -48,7 +52,10 @@ const HomePage = () => {
             </div>
           </div>
 
-          <button className={styles.searchButton}>
+          <button 
+            className={styles.searchButton}
+            onClick={handleSearch}
+          >
             Search
           </button>
         </div>

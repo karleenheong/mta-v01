@@ -1,16 +1,13 @@
-import { Outlet } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import { Menu } from 'lucide-react'
-import styles from './MainLayout.module.css'
+import { Outlet, Link } from 'react-router-dom';
+import { Menu } from 'lucide-react';
+import styles from './MainLayout.module.css';
 import logoImage from '../../assets/images/logo.png';
 
 const MainLayout = () => {
   return (
     <div className={styles.layout}>
-      {/* Navigation Bar */}
       <nav className={styles.navbar}>
         <div className={styles.navContent}>
-          {/* Logo */}
           <Link to="/" className={styles.logo}>
             <img src={logoImage} alt="Cozyama" />
           </Link>
@@ -20,11 +17,9 @@ const MainLayout = () => {
             <Link to="/preference-center" className={styles.navLink}>
               Preferences
             </Link>
-            <div className={styles.profileSwitch}>
-              <button className={styles.navLink}>
-                Switch Profile
-              </button>
-            </div>
+            <Link to="/profiles" className={styles.navLink}>
+              Profiles
+            </Link>
             <Link to="/account" className={styles.navLink}>
               Account
             </Link>
